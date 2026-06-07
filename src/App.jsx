@@ -1,16 +1,22 @@
 import React, { useState, useEffect, useRef } from 'react';
- import robotImg from './assets/robot.jpg';
+import robotImg from './assets/robot.jpg';
+import socImg    from './assets/screenshots/soc-homelab.png';
+import wafImg    from './assets/screenshots/waf-homelab.png';
+import semisImg  from './assets/screenshots/semis.png';
+import coffeeImg from './assets/screenshots/coffee-shop.png';
+import siemImg   from './assets/screenshots/minisiem.png';
+import indoImg   from './assets/screenshots/indostays.png';
 
 const PROJECTS = [
   {
     id: 1,
     title: 'SOC Homelab',
     tag: 'Blue Team',
-    tagColor: '#5DCAA5',
+    tagColor: '#4A9EFF',
     desc: 'Built a hybrid Windows + Kali lab, configured Elastic Cloud SIEM, and wrote custom detection rules that caught real simulated attacks.',
     skills: ['Elastic SIEM', 'Sysmon', 'Threat Detection', 'Linux/Windows'],
     link: 'https://github.com/hal-imaxabdi/Soc-Homelab',
-    screenshot: null,
+    screenshot: socImg,
     featured: true,
   },
   {
@@ -21,7 +27,7 @@ const PROJECTS = [
     desc: 'Deployed SafeLine WAF to detect and block SQL Injection, XSS, and Command Injection in real-time with rate limiting and IP blacklisting.',
     skills: ['SafeLine WAF', 'SQLi/XSS', 'Rate Limiting', 'IP Blacklisting'],
     link: 'https://github.com/hal-imaxabdi/WAF-HomeLab-SafeLine',
-    screenshot: null,
+    screenshot: wafImg,
     featured: true,
   },
   {
@@ -32,7 +38,7 @@ const PROJECTS = [
     desc: 'Enterprise HR system implementing all 10 OWASP Top 10 mitigations — MFA, encryption at rest, RBAC, and audit logging.',
     skills: ['React', 'Node.js', 'OWASP Top 10', 'RBAC'],
     link: 'https://github.com/hal-imaxabdi/SEMIS-Secure-Employee-Management-Information-System',
-    screenshot: null,
+    screenshot: semisImg,
     featured: false,
   },
   {
@@ -43,7 +49,7 @@ const PROJECTS = [
     desc: 'Full-stack e-commerce demo with brute force simulation. Shows vulnerable vs. secure design with BCrypt, JWT, rate limiting, and CSRF protection.',
     skills: ['Flask', 'Python', 'JWT', 'CSRF'],
     link: 'https://github.com/hal-imaxabdi/Coffee-Demo-shop',
-    screenshot: null,
+    screenshot: coffeeImg,
     featured: false,
   },
   {
@@ -54,18 +60,18 @@ const PROJECTS = [
     desc: 'Custom SIEM built from scratch — log collection, normalization, detection engine, and dashboard. A deep dive into how SIEMs work.',
     skills: ['Python', 'Log Normalization', 'Detection Engine', 'Dashboard'],
     link: 'https://github.com/hal-imaxabdi/mini-siem',
-    screenshot: null,
+    screenshot: siemImg,
     featured: false,
   },
   {
     id: 6,
-    title: 'Expense Tracker',
-    tag: 'Frontend',
+    title: 'IndoStays-App',
+    tag: 'Mobile Full-Stack',
     tagColor: '#74b9ff',
-    desc: 'Interactive expense tracking app with category breakdowns, monthly charts, and local data persistence. Built with vanilla JS and DOM manipulation.',
-    skills: ['JavaScript', 'DOM', 'CSS3', 'LocalStorage'],
-    link: 'https://github.com/hal-imaxabdi',
-    screenshot: null,
+    desc: 'A Flutter-based mobile application designed to help tourists easily find and book accommodations during their visit to Indonesia.',
+    skills: ['Flutter', 'Dart', 'Firebase', 'REST APIs'],
+    link: 'https://github.com/hal-imaxabdi/IndoStays-App',
+    screenshot: indoImg,
     featured: false,
   },
 ];
@@ -82,11 +88,26 @@ const ALL_SKILLS = [
 ];
 
 const CERTS = [
-  { name: 'Google Cybersecurity Professional', issuer: 'Google' },
-  { name: 'IBM Incident Response & Digital Forensics', issuer: 'IBM' },
-  { name: 'AWS Security Fundamentals', issuer: 'Amazon Web Services' },
-  { name: 'TryHackMe Pre-Security', issuer: 'TryHackMe' },
-  { name: 'President English Test (PET)', issuer: 'President University · Score 556' },
+  {
+    name: 'Google Cybersecurity Professional',
+    issuer: 'Google',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/250px-Google_2015_logo.svg.png',
+  },
+  {
+    name: 'IBM Incident Response & Digital Forensics',
+    issuer: 'IBM',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/IBM_logo.svg/250px-IBM_logo.svg.png',
+  },
+  {
+    name: 'AWS Security Fundamentals',
+    issuer: 'Amazon Web Services',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/250px-Amazon_Web_Services_Logo.svg.png',
+  },
+  {
+    name: 'TryHackMe Pre-Security',
+    issuer: 'TryHackMe',
+    logo: 'https://assets.tryhackme.com/img/THMlogo.png',
+  },
 ];
 
 function useTypewriter(text, speed = 85, delay = 400) {
@@ -180,7 +201,7 @@ function Navbar() {
 }
 
 function Hero() {
-  const { displayed, done } = useTypewriter('Halima Abdirizak', 85, 300);
+  const { displayed, done } = useTypewriter('Halima Abdirizak Mohamed', 85, 300);
   const [sub, setSub] = useState(false);
   useEffect(() => { if (done) setTimeout(() => setSub(true), 200); }, [done]);
 
@@ -195,12 +216,12 @@ function Hero() {
     }}>
       <div style={{
         position: 'absolute', inset: 0, zIndex: 0, pointerEvents: 'none',
-        backgroundImage: `linear-gradient(rgba(93,202,165,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(93,202,165,0.025) 1px, transparent 1px)`,
+        backgroundImage: `linear-gradient(rgba(74,158,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(74,158,255,0.025) 1px, transparent 1px)`,
         backgroundSize: '64px 64px',
       }} />
       <div style={{
         position: 'absolute', top: '15%', right: '5%', width: 400, height: 400,
-        background: 'radial-gradient(circle, rgba(93,202,165,0.05) 0%, transparent 65%)',
+        background: 'radial-gradient(circle, rgba(74,158,255,0.05) 0%, transparent 65%)',
         borderRadius: '50%', zIndex: 0, pointerEvents: 'none',
       }} />
 
@@ -239,7 +260,7 @@ function Hero() {
           display: 'flex', gap: 20, marginTop: 36, flexWrap: 'wrap',
           opacity: sub ? 1 : 0, transition: 'opacity 0.7s ease 0.3s',
         }}>
-          {['📍 Bekasi, Indonesia', '🎓 President University', '⚡ Open to Internships'].map(t => (
+          {[ '⚡ Open to Internships' ].map(t => (
             <span key={t} style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--muted)', letterSpacing: 0.3 }}>{t}</span>
           ))}
         </div>
@@ -247,32 +268,21 @@ function Hero() {
 
       <div style={{ position: 'relative', zIndex: 1, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
         <div style={{ position: 'relative', width: 'min(300px, 70vw)', aspectRatio: '1/1', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <div style={{ position: 'absolute', inset: 0, borderRadius: '50%', border: '1.5px solid rgba(93,202,165,0.25)', animation: 'glowPulse 3.5s ease-in-out infinite' }} />
-          <div style={{ position: 'absolute', inset: '12%', borderRadius: '50%', border: '1px solid rgba(93,202,165,0.1)' }} />
+          <div style={{ position: 'absolute', inset: 0, borderRadius: '50%', border: '1.5px solid rgba(74,158,255,0.25)', animation: 'glowPulse 3.5s ease-in-out infinite' }} />
+          <div style={{ position: 'absolute', inset: '12%', borderRadius: '50%', border: '1px solid rgba(74,158,255,0.1)' }} />
           <div style={{
             width: '72%', aspectRatio: '1/1', borderRadius: '50%',
             background: 'linear-gradient(145deg, #16161e, #1c1c28)',
-            border: '2px solid rgba(93,202,165,0.35)',
+            border: '2px solid rgba(74,158,255,0.35)',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             animation: 'floatRobot 4.5s ease-in-out infinite',
             overflow: 'hidden',
           }}>
-             <img src={robotImg} alt="Halima" style={{ width:'100%', height:'100%', objectFit:'cover' }} />
+            <img src={robotImg} alt="Halima" style={{ width:'100%', height:'100%', objectFit:'cover' }} />
           </div>
         </div>
       </div>
     </section>
-  );
-}
-
-function RobotPlaceholder() {
-  return (
-    <div style={{ textAlign: 'center', padding: 16 }}>
-      <div style={{ fontSize: 64, lineHeight: 1 }}>🤖</div>
-      <p style={{ fontFamily: 'var(--font-mono)', fontSize: 9, color: 'rgba(255,255,255,0.2)', marginTop: 8, lineHeight: 1.5 }}>
-        robot.jpg<br />goes here
-      </p>
-    </div>
   );
 }
 
@@ -378,12 +388,10 @@ function ProjectCard({ project }) {
   );
 }
 
-// Rotating 3D tag cloud
 function SkillGlobe() {
   const canvasRef = useRef(null);
   const animRef = useRef(null);
   const tagsRef = useRef([]);
-  const mouseRef = useRef({ x: 0, y: 0 });
   const speedRef = useRef({ x: 0.003, y: 0.006 });
 
   useEffect(() => {
@@ -398,7 +406,6 @@ function SkillGlobe() {
     const cx = W / 2, cy = H / 2;
     const R = Math.min(W, H) * 0.38;
 
-    // Distribute skills evenly on sphere surface using golden spiral
     tagsRef.current = ALL_SKILLS.map((text, i) => {
       const phi = Math.acos(1 - (2 * (i + 0.5)) / ALL_SKILLS.length);
       const theta = Math.PI * (1 + Math.sqrt(5)) * i;
@@ -413,11 +420,9 @@ function SkillGlobe() {
     let angleX = 0, angleY = 0;
 
     const rotate = (tag, ax, ay) => {
-      // Rotate around Y
       const cosY = Math.cos(ay), sinY = Math.sin(ay);
       const x1 = tag.x * cosY + tag.z * sinY;
       const z1 = -tag.x * sinY + tag.z * cosY;
-      // Rotate around X
       const cosX = Math.cos(ax), sinX = Math.sin(ax);
       const y2 = tag.y * cosX - z1 * sinX;
       const z2 = tag.y * sinX + z1 * cosX;
@@ -426,7 +431,6 @@ function SkillGlobe() {
 
     const draw = () => {
       ctx.clearRect(0, 0, W, H);
-
       angleX += speedRef.current.x;
       angleY += speedRef.current.y;
 
@@ -443,7 +447,7 @@ function SkillGlobe() {
         const fontSize = Math.round(10 + scale * 5);
         ctx.font = `${scale > 0.75 ? 500 : 400} ${fontSize}px 'DM Sans', sans-serif`;
         ctx.fillStyle = scale > 0.7
-          ? `rgba(93,202,165,${alpha.toFixed(2)})`
+          ? `rgba(74,158,255,${alpha.toFixed(2)})`
           : `rgba(120,120,150,${(alpha * 0.6).toFixed(2)})`;
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
@@ -497,9 +501,6 @@ function Skills() {
         }}>
           <SkillGlobe />
         </div>
-        <p style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'rgba(255,255,255,0.2)', textAlign: 'center', marginTop: 12, letterSpacing: 1 }}>
-          MOVE MOUSE OVER GLOBE TO STEER
-        </p>
       </div>
 
       <div style={{
@@ -526,21 +527,35 @@ function Certifications() {
     <section id="certifications" ref={ref} style={{ padding: 'clamp(60px, 10vw, 100px) clamp(20px, 8vw, 80px)' }}>
       <SectionHeader label="04 / CERTIFICATIONS" title="Certifications" inView={inView} />
       <div style={{
-        display: 'flex', flexDirection: 'column', gap: 1,
-        opacity: inView ? 1 : 0, transform: inView ? 'none' : 'translateY(28px)',
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
+        gap: 16,
+        opacity: inView ? 1 : 0,
+        transform: inView ? 'none' : 'translateY(28px)',
         transition: 'all 0.7s ease 0.2s',
-        border: '1px solid rgba(255,255,255,0.06)', borderRadius: 8, overflow: 'hidden',
       }}>
-        {CERTS.map((cert, i) => (
+        {CERTS.map(cert => (
           <div key={cert.name} style={{
-            background: i % 2 === 0 ? '#111118' : '#0f0f16',
-            padding: '16px 24px',
-            display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-            flexWrap: 'wrap', gap: 8,
-            borderBottom: i < CERTS.length - 1 ? '1px solid rgba(255,255,255,0.05)' : 'none',
-          }}>
-            <span style={{ fontFamily: 'var(--font-body)', fontSize: 14, color: 'var(--text)' }}>{cert.name}</span>
-            <span style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--muted)', letterSpacing: 0.5, whiteSpace: 'nowrap' }}>{cert.issuer}</span>
+            background: '#111118',
+            border: '1px solid rgba(255,255,255,0.06)',
+            borderRadius: 12,
+            padding: '24px 16px',
+            display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 14,
+            textAlign: 'center',
+            transition: 'border-color 0.2s, transform 0.2s',
+          }}
+            onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.15)'; e.currentTarget.style.transform = 'translateY(-3px)'; }}
+            onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.06)'; e.currentTarget.style.transform = 'none'; }}
+          >
+            <img src={cert.logo} alt={cert.issuer} style={{ width: 48, height: 48, objectFit: 'contain' }} />
+            <div>
+              <div style={{ fontFamily: 'var(--font-body)', fontSize: 13, fontWeight: 600, color: '#fff', lineHeight: 1.4, marginBottom: 6 }}>
+                {cert.name}
+              </div>
+              <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--muted)', letterSpacing: 0.5 }}>
+                {cert.issuer}
+              </div>
+            </div>
           </div>
         ))}
       </div>
@@ -560,12 +575,12 @@ function Contact() {
         <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--accent)', letterSpacing: 3, marginBottom: 14 }}>05 / CONTACT</div>
         <h2 style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 'clamp(32px, 6vw, 46px)', color: '#fff', marginBottom: 16, letterSpacing: '-0.5px' }}>Let's Connect</h2>
         <p style={{ fontFamily: 'var(--font-body)', fontSize: 15, color: 'var(--muted)', lineHeight: 1.75, marginBottom: 36 }}>
-          I'm looking for SOC analyst internship opportunities. Recruiter, fellow student, or just want to talk IT — my inbox is open.
+          I'm looking for internship opportunities. Recruiter, fellow student, or just want to talk IT — my inbox is open.
         </p>
         <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
-          <ContactLink href="mailto:halimamohamedabdirizak@email.com" label="Email" color="#5DCAA5" />
-          <ContactLink href="https://github.com/hal-imaxabdi" label="GitHub" color="#a29bfe" />
-          <ContactLink href="https://linkedin.com/in/halimaabdirizak-mohamed" label="LinkedIn" color="#f0a500" />
+          <ContactLink href="mailto:halimamohamedabdirizak@email.com" label="Email" color="var(--accent)" />
+          <ContactLink href="https://github.com/hal-imaxabdi" label="GitHub" color="var(--accent)" />
+          <ContactLink href="https://linkedin.com/in/halimaabdirizak-mohamed" label="LinkedIn" color="var(--accent)" />
         </div>
         <div style={{ marginTop: 48, fontFamily: 'var(--font-mono)', fontSize: 10, color: 'rgba(255,255,255,0.2)', letterSpacing: 1 }}>
           +62 8179727975 · Bekasi, Indonesia

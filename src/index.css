@@ -7,7 +7,7 @@
   --border: rgba(255,255,255,0.06);
   --text: #dddde8;
   --muted: #72728a;
-  --accent: #5DCAA5;
+  --accent: #4A9EFF;
   --font-display: 'Cabinet Grotesk', 'DM Sans', sans-serif;
   --font-body: 'DM Sans', system-ui, sans-serif;
   --font-mono: 'Space Mono', monospace;
@@ -18,14 +18,14 @@ body { background: var(--bg); color: var(--text); font-family: var(--font-body);
 
 ::-webkit-scrollbar { width: 3px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: #5DCAA540; border-radius: 3px; }
+::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
 
 @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
 @keyframes fadeUp { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:translateY(0)} }
 @keyframes floatRobot { 0%,100%{transform:translateY(0) rotate(-2deg)} 50%{transform:translateY(-16px) rotate(2deg)} }
 @keyframes glowPulse {
-  0%,100% { box-shadow: 0 0 32px rgba(93,202,165,0.15); }
-  50% { box-shadow: 0 0 52px rgba(93,202,165,0.3); }
+  0%,100% { box-shadow: 0 0 32px rgba(74, 158, 255, 0.15); }
+  50% { box-shadow: 0 0 52px rgba(74, 158, 255, 0.3); }
 }
 
 .animate-fadeUp { animation: fadeUp 0.7s ease forwards; }
